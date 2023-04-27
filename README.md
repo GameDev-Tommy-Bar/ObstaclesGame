@@ -8,7 +8,7 @@
 ## שיהיה לכם בהצלחה
 ## [play here](https://tommy-bar.itch.io/obstacle-game)
 ![gamephoto](https://github.com/GameDev-Tommy-Bar/ObstaclesGame/blob/29e053b1f29cefa482b9fe6a51e84c081dc7cc85/Assets/pics/firstfloor.png)
-## הפונקציות החדשות שהשתמשתי הן:
+## הפונקציות החדשות שהשתמשתי
 ### raycast שמאפשר לגוף בזמן תנועה לזהות כמה הוא רחוק מגוף אחר וכך להאט את המהירות בהתאם 
 ### מעבר בין סצנות
 ### לשחקן הוספתי אפשרות לשנות כיוון במידה והוא לוחץ על החץ הנגדי
