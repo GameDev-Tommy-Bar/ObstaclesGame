@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassJoinHillRight2&Left2
       objectReference: {fileID: 0}
+    - target: {fileID: 1262595616528028309, guid: 90265f4e996436e4296c5ff301f04bc0, type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1262595616528028311, guid: 90265f4e996436e4296c5ff301f04bc0, type: 3}
       propertyPath: m_RootOrder
       value: 1
