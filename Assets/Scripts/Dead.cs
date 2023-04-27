@@ -6,17 +6,15 @@ using UnityEngine.SceneManagement;
 public class Dead : MonoBehaviour
 {
     public int health;
-    
 
     // Start is called before the first frame update
-  
+
 
     // Update is called once per frame
-    void Update()
+    void Update() { }
+
+    void Die()
     {
-        
-    }
-    void Die(){
-    SceneManager.LoadScene("simplescene");        
+        SceneManager.LoadScene("simplescene");
     }
 }

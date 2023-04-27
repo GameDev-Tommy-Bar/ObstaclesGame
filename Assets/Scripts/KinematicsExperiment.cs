@@ -3,12 +3,20 @@ using UnityEngine.InputSystem;
 
 public class KinematicsExperiment : MonoBehaviour
 {
-    [SerializeField] InputAction jump;
-    [SerializeField] Vector3 velocity = Vector3.zero;
-    [SerializeField] Vector3 acceleration  = new Vector3(0,-10,0);
-    [SerializeField] bool isTouchingTheGround = false;
+    [SerializeField]
+    InputAction jump;
 
-    void OnValidate() {
+    [SerializeField]
+    Vector3 velocity = Vector3.zero;
+
+    [SerializeField]
+    Vector3 acceleration = new Vector3(0, -10, 0);
+
+    [SerializeField]
+    bool isTouchingTheGround = false;
+
+    void OnValidate()
+    {
         // Provide default bindings for the input actions.
         // Based on answer by DMGregory: https://gamedev.stackexchange.com/a/205345/18261
         if (jump == null)
@@ -17,11 +25,13 @@ public class KinematicsExperiment : MonoBehaviour
             jump.AddBinding("<Keyboard>/space");
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         jump.Enable();
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         jump.Disable();
     }
 
@@ -47,38 +57,49 @@ public class KinematicsExperiment : MonoBehaviour
     }
     */
 
-    private void OnCollisionEnter(Collision c) {
-        if (c.collider.name == "Ground") {
+    private void OnCollisionEnter(Collision c)
+    {
+        if (c.collider.name == "Ground")
+        {
             isTouchingTheGround = true;
         }
     }
 
-    private void OnCollisionExit(Collision c) {
-        if (c.collider.name == "Ground") {
+    private void OnCollisionExit(Collision c)
+    {
+        if (c.collider.name == "Ground")
+        {
             isTouchingTheGround = false;
         }
     }
 
-
     bool playerWantsToJump = false;
-    void Update() {
+
+    void Update()
+    {
         // Check for user input:
-        if (isTouchingTheGround && jump.WasPressedThisFrame()) {
+        if (isTouchingTheGround && jump.WasPressedThisFrame())
+        {
             Debug.Log("Player wants to jump");
             playerWantsToJump = true;
         }
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         // Update velocity and position:
-        if (playerWantsToJump) {
+        if (playerWantsToJump)
+        {
             Debug.Log("Jumping!");
             velocity = 20 * Vector3.up;
             playerWantsToJump = false;
         }
-        if (isTouchingTheGround && velocity.y <= 0) {
+        if (isTouchingTheGround && velocity.y <= 0)
+        {
             velocity = Vector3.zero;
-        } else {
+        }
+        else
+        {
             velocity += acceleration * Time.fixedDeltaTime;
         }
         transform.position += velocity * Time.fixedDeltaTime;

@@ -9,12 +9,10 @@ public class endgame : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //i want to end the game when the player touch the endgame object then the game will end without any scene
-        if(other.tag=="player")
+        if (other.tag == "player")
         {
             Debug.Log("endgame");
             SceneManager.LoadScene("endgame");
         }
-     
-
     }
 }

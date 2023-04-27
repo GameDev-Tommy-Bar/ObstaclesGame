@@ -10,12 +10,12 @@ public class MoveSingel : MonoBehaviour
     public float moveX;
     public bool isGrounded;
 
-
     // Update is called once per frame
     void Update()
     {
         PlayerMover();
     }
+
     void PlayerMover()
     {
         moveX = Input.GetAxis("Horizontal");
@@ -31,16 +31,16 @@ public class MoveSingel : MonoBehaviour
         {
             FlipPlayer();
         }
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * PlayerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(
+            moveX * PlayerSpeed,
+            gameObject.GetComponent<Rigidbody2D>().velocity.y
+        );
     }
-
-
 
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * PlayerJumpPower);
         isGrounded = false;
-
     }
 
     void FlipPlayer()
@@ -50,27 +50,24 @@ public class MoveSingel : MonoBehaviour
         localScale.x *= -1;
         transform.localScale = localScale;
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "ground")
+        if (other.gameObject.tag == "ground")
         {
             isGrounded = true;
         }
-
     }
 
-    private void OnCollisionExit2D(Collision2D other)
-    {
-       
-    }
+    private void OnCollisionExit2D(Collision2D other) { }
+
     void PlayerRaycast()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-        if(hit.distance<0.9f && hit.collider.tag == "Enemy"){
+        if (hit.distance < 0.9f && hit.collider.tag == "Enemy")
+        {
             Debug.Log("tuch the enemy");
             Destroy(hit.collider.gameObject);
         }
     }
-  
-
 }
